@@ -1,38 +1,55 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
+
+import * as firebase from 'firebase';
+firebase.initializeApp(environment.firebaseConfig);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductosComponent } from './productos/productos.component';
-import { ClientesComponent } from './clientes/clientes.component';
-import { VentasComponent } from './ventas/ventas.component';
-import { TiendaComponent } from './tienda/tienda.component';
-import { AgregarProductoComponent } from './agregar-producto/agregar-producto.component';
-import { DetalleDeProductoComponent } from './detalle-de-producto/detalle-de-producto.component';
-import { TerminarCompraComponent } from './terminar-compra/terminar-compra.component';
-import { DetalleDeVentaComponent } from './detalle-de-venta/detalle-de-venta.component';
-import { ValoracionProductoComponent } from './valoracion-producto/valoracion-producto.component';
-import { ValoracionUsuarioComponent } from './valoracion-usuario/valoracion-usuario.component';
+import { HomeComponent } from './home/home.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { RegistroComponent } from './registro/registro.component';
+import { GaleriaComponent } from './galeria/galeria.component';
+import { EditarProductoComponent } from './administracion/editar-producto/editar-producto.component';
+import { AdminComponent } from './administracion/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductosComponent,
-    ClientesComponent,
-    VentasComponent,
-    TiendaComponent,
-    AgregarProductoComponent,
-    DetalleDeProductoComponent,
-    TerminarCompraComponent,
-    DetalleDeVentaComponent,
-    ValoracionProductoComponent,
-    ValoracionUsuarioComponent
+    HomeComponent,
+    PerfilComponent,
+    RegistroComponent,
+    GaleriaComponent,
+    EditarProductoComponent,
+    AdminComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AccordionModule,
+    BrowserAnimationsModule,
+    CarouselModule,
+    AngularFireStorageModule,
+    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
+
+
   ],
-  providers: [],
+  providers: [{ provide: BUCKET, useValue: 'gs://colec-34b9a.appspot.com' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

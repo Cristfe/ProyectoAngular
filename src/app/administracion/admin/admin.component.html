@@ -1,0 +1,39 @@
+<div>
+
+    <div class="bloque">
+        <button class="btn btn btn-secondary m-3" [routerLink]="['/agregar-producto']">Agregar Producto</button>
+    </div>
+
+    <div class="table-responsive table-bordered table-hover">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">descripcion</th>
+                    <th scope="col">imagen</th>
+                    <th scope="col">precio</th>
+                    <th scope="col">categoria</th>
+                    <th scope="col">epoca</th>
+                    <th scope="col">valoracion</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let producto of arrProductos">
+                <tr>
+                    <td>{{producto.id}}</td>
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.descripcion}}</td>
+                    <td>{{producto.imagen}}</td>
+                    <td>{{producto.precio}}</td>
+                    <td>{{producto.categoria}}</td>
+                    <td>{{producto.epoca}}</td>
+                    <td>{{producto.valoracion}}</td>
+                    <td>
+                        <button class=" btn btn-success btn-sm ml-1" [routerLink]="['/productos/editar/'+producto.id]">Editar</button>
+                        <button class="btn btn-danger btn-sm ml-1 mt-1" (click)="onDelete(producto.id)">Borrar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

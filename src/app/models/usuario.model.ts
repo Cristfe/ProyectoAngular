@@ -1,17 +1,18 @@
-export class Cliente {
-
+export class Usuario {
+    id: number;
     nombre: string;
-    apellidos: string;
+    usuario: string;
     email: string;
-    lugar: string;
-    imagen: string;
+    password: string;
+    foto: string;
 
 
-    constructor(pNombre = '', pApellidos = '', pEmail = '', pLugar = '', pImagen = '') {
+    constructor(pId, pNombre, pUsuario, pEmail, pPassword, pFoto) {
+        this.id = pId;
         this.nombre = pNombre;
-        this.apellidos = pApellidos;
+        this.usuario = pUsuario;
         this.email = pEmail;
-        this.lugar = pLugar;
-        this.imagen = pImagen;
+        this.password = pPassword;
+        this.foto = pFoto;
     }
 }

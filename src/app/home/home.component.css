@@ -1,0 +1,51 @@
+.container {
+    background-color: whitesmoke;
+}
+
+h3,
+h4 {
+    color: var(--color-fuente);
+}
+
+header.hero {
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.formulario {
+    border: 1px gainsboro solid;
+    background-color: whitesmoke;
+    margin-left: 20px;
+    position: relative;
+    bottom: 75px;
+}
+
+div.formulario p {
+    color: var(--color-fuente);
+}
+
+.servicios {
+    box-shadow: 0 0 10px grey;
+    margin-bottom: 200px;
+}
+
+.servicios article {
+    text-align: center;
+    padding: 15px;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid cornflowerblue;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid lightcoral;
+}
+
+.logo {
+    width: 350px;
+    margin-bottom: 5%;
+    margin-top: -5%;
+}

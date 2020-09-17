@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "app-colec": {
+      "hosting": {
+        "colec": [
+          "app-colec"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "colec-477fe"
+  }
+}

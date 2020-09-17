@@ -1,0 +1,34 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="row d-flex">
+            <div class="m-3 d-flex justify-content-end">
+                <select class="selectpicker m-1" name="categoria" (change)="onChange($event)">
+                    <option value="" selected="true">Todo</option>
+                    <option value="anterior 1900">Anterior 1900</option>
+                    <option value="1900-40">1900-1940</option>
+                    <option value="40-60">40-60</option>
+                    <option value="70-80">70-80</option>
+                    <option value="90-00">90-00</option>
+                </select>
+            </div>
+        </div>
+        <h2 class="text-center col-12">GALERIA</h2>
+        <div *ngFor="let producto of arrProducto" class="comic col-12 col-md-4 h-100 mt-2">
+            <div class="contenedor">
+                <img class="portada" [src]="producto.imagen">
+                <div class="info">
+                    <h3>{{producto.nombre}}</h3>
+                    <p> <span>Categoria</span>: {{producto.categoria}}</p>
+                    <p><span> Descripcion</span>: {{producto.descripcion}}</p>
+                    <p><span> Epoca</span>: {{producto.epoca}}</p>
+                    <p><span> Precio</span>: {{producto.precio}}</p>
+                </div>
+            </div>
+            <h3>{{producto.nombre}}</h3>
+            <button class="btn btn-outline-danger" [routerLink]="['/galeria/view', producto.id]">VER</button>
+        </div>
+
+    </div>
+</div>
