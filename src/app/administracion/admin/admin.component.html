@@ -13,8 +13,6 @@
                     <th scope="col">descripcion</th>
                     <th scope="col">imagen</th>
                     <th scope="col">precio</th>
-                    <th scope="col">categoria</th>
-                    <th scope="col">epoca</th>
                     <th scope="col">valoracion</th>
                 </tr>
             </thead>
@@ -25,9 +23,6 @@
                     <td>{{producto.descripcion}}</td>
                     <td>{{producto.imagen}}</td>
                     <td>{{producto.precio}}</td>
-                    <td>{{producto.categoria}}</td>
-                    <td>{{producto.epoca}}</td>
-                    <td>{{producto.valoracion}}</td>
                     <td>
                         <button class=" btn btn-success btn-sm ml-1" [routerLink]="['/productos/editar/'+producto.id]">Editar</button>
                         <button class="btn btn-danger btn-sm ml-1 mt-1" (click)="onDelete(producto.id)">Borrar</button>

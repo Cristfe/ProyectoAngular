@@ -1,9 +1,6 @@
-.container {
-    background-color: whitesmoke;
-}
-
 h3,
-h4 {
+h4,
+p {
     color: var(--color-fuente);
 }
 
@@ -15,11 +12,10 @@ header.hero {
 }
 
 div.formulario {
-    border: 1px gainsboro solid;
-    background-color: whitesmoke;
-    margin-left: 20px;
+    margin-right: 20px;
     position: relative;
     bottom: 75px;
+    opacity: 60%;
 }
 
 div.formulario p {
@@ -37,11 +33,11 @@ div.formulario p {
 }
 
 input.ng-valid.ng-touched {
-    border: 1px solid cornflowerblue;
+    border: 1px solid whitesmoke;
 }
 
 input.ng-invalid.ng-touched {
-    border: 1px solid lightcoral;
+    border: 1px solid wheat;
 }
 
 .logo {

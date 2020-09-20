@@ -16,16 +16,14 @@ import { AgregarProductoComponent } from './administracion/agregar-producto/agre
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
-  { path: 'perfil', component: PerfilComponent, canActivate: [AccesoGuard] },
-  // { path: 'perfil/editar/:idUsuario', component: EditarPerfilComponent, canActivate: [AccesoGuard] },
   { path: 'registro', component: RegistroComponent },
   { path: 'galeria', component: GaleriaComponent, canActivate: [AccesoGuard] },
+  { path: 'agregarProducto', component: AgregarProductoComponent, canActivate: [AccesoGuard, AdminGuard] },
   // { path: 'galeria/view/:idProducto', component: VisorComponent, canActivate: [AccesoGuard] },
 
 
   { path: 'admin', component: AdminGeneralComponent, canActivate: [AccesoGuard, AdminGuard] },
   { path: 'admin/productos', component: AdminComponent, canActivate: [AccesoGuard, AdminGuard] },
-  { path: 'admin/productos/crear', component: AgregarProductoComponent, canActivate: [AccesoGuard, AdminGuard] },
   { path: 'productos/editar/:productoId', component: EditarProductoComponent, canActivate: [AccesoGuard, AdminGuard] },
 
   { path: '**', redirectTo: 'home' }

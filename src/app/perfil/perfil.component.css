@@ -1,0 +1,14 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.container {}
+
+h3 {
+    margin-left: 18px;
+}
+
+.perfil {
+    text-align: center;
+}
+
+.usuario {
+    margin-left: 0;
+}

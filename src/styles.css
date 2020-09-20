@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@0;1&display=swap');
 :root {
-    --fuente-principal: 'Bangers', cursive;
-    --fuente-secundaria: 'Roboto', sans-serif;
-    --color-fondo: rgb(233, 233, 233);
-    --color-fuente: #c23b23;
+    --fuente-principal: 'Roboto Condensed', normal;
+    --fuente-secundaria: 'Roboto Condensed', sans-serif;
+    --color-fondo: wheat;
+    --color-fuente: antiquewhite;
 }
 
 body {
-    background-color: var(--color-fondo);
+    background-size: 100%;
+    background-image: url("./assets/images/home4.jpg");
 }
 
 html,

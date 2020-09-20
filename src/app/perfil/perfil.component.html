@@ -1,1 +1,8 @@
-<p>perfil works!</p>
+<div class="container">
+    <div class="d-flex flex-wrap p-3">
+        <div class="col-12 col-sm-3 col-md-3 mb-5">
+            <div class="col d-flex flex-column perfil">
+                <h3 class="usuario">{{arrUser.usuario}}</h3>
+                <button [routerLink]="['admin/productos/crear'+arrUser.id]" class="btn btn-outline-warning">Agregar</button>
+            </div>
+        </div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UsuariosService } from '../../services/usuarios.service';
-import { Router } from '@angular/router';
-import { AdminGuard } from '../../admin.guard';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Producto } from 'src/app/models/producto.model';
+import { ProductosService } from '../../services/productos.service'
 
 @Component({
   selector: 'app-editar-producto',
@@ -11,38 +11,59 @@ import { AdminGuard } from '../../admin.guard';
 })
 export class EditarProductoComponent implements OnInit {
 
-  login: FormGroup;
+
+  producto: Producto;
+  id: number;
+  editForm: FormGroup;
+
   constructor(
-    private usuariosService: UsuariosService,
-    private router: Router,
-    private adminGuard: AdminGuard
-  ) {
-    this.login = new FormGroup({
-      email: new FormControl('', [Validators.required,
-      Validators.pattern(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/)
-      ]),
-      password: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z]\w{8,30}$/)
-      ])
-    })
+    private activatedRoute: ActivatedRoute,
+    private productosService: ProductosService,
+    private router: Router) {
+
+    this.editForm = new FormGroup({
+      'nombre': new FormControl(''),
+      'usuario': new FormControl(''),
+      'categoria': new FormControl(''),
+      'fecha_alta': new FormControl((new Date()).toISOString().substring(0, 10)),
+      'precio': new FormControl(''),
+      'imagen': new FormControl(''),
+      'descripcion': new FormControl(''),
+      'archivo': new FormControl('', [Validators.required]),
+      'fk_usuario': new FormControl('')
+    });
   }
 
+  async ngOnInit() {
+    var id;
+    this.activatedRoute.params.subscribe((params) => {
+      id = params.productoId;
+    });
+    this.producto = await this.productosService.getProductoById(id);
 
-  ngOnInit(): void {
+    this.editForm = new FormGroup({
+      'nombre': new FormControl(this.producto[0].nombre),
+      'categoria': new FormControl(this.producto[0].categoria),
+      'fecha_alta': new FormControl(this.producto[0].fecha_alta),
+      'precio': new FormControl(this.producto[0].precio),
+      'imagen': new FormControl(this.producto[0].imagen),
+      'descripcion': new FormControl(this.producto[0].descripcion),
+      'fk_usuario': new FormControl(this.producto[0].fk_usuario)
+    });
   }
+
 
   async onSubmit() {
-    try {
-      const response = await this.usuariosService.login(this.login.value);
+    let editedProducto = this.editForm.value;
+    var id;
+    this.activatedRoute.params.subscribe((params) => {
+      id = params.comicId;
+    });
+    await this.productosService.editProducto(id, editedProducto);
+    this.router.navigate(['/admin/productos/']);
 
-      if (response.success) {
-        await this.usuariosService.createLocalToken(response.token);
-        await this.usuariosService.retrieveLocalToken();
-        await this.usuariosService.createLocalEmail(response.email);
-        await this.usuariosService.retrieveLocalEmail();
-        this.router.navigate(['/galeria']);
-      }
-    } catch (err) {
-      console.log(err);
-    }
   }
+
+
+
 }

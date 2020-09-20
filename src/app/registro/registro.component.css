@@ -1,6 +1,7 @@
 .registro {
     width: 70%;
     border: 1px solid black;
+    background-size: cover;
     position: relative;
 }
 
@@ -16,10 +17,4 @@ input.ng-valid.ng-touched {
 
 input.ng-invalid.ng-touched {
     border: 1px solid lightcoral;
-}
-
-.logo {
-    width: 200px;
-    margin-left: 43%;
-    margin-top: 15px;
 }
